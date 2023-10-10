@@ -14,6 +14,3 @@ for i in range(0,num):
        fib[i] = fib[i-2] + fib[i-1]
     print(fib[i])
 
-    
-
-
