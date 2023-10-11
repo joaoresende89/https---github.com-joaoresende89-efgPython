@@ -11,6 +11,7 @@ if num < '0':
 
 n = len(num)
 
+print("=>", end=" ")
 while n > 0:
     print(num[n-1], end="")
     n -= 1
