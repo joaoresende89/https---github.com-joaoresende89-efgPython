@@ -33,11 +33,11 @@ while inicio == 0:
     for n in range(i-1):
         print(f"Produto {n+1}: R$ {produtos[n]:.2f}")
 
-    print(f"Total : R${total:.2f}")
+    print(f"Total : R$ {total:.2f}")
     dinheiro = float(input("Dinheiro: R$ "))
-    print(f"Troco: R$ {dinheiro-total}")
+    print(f"Troco: R$ {dinheiro-total:.2f}")
 
-    inicio = input("Para continuar digite 0: ")
+    inicio = int(input("Para continuar digite 0: "))
 
 
 
