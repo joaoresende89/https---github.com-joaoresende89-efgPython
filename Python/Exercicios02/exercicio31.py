@@ -30,7 +30,7 @@ while inicio == 0:
         if valor == 0:
             compra = 1
     
-    for n in range(i-1):
+    for n in range(i-2):
         print(f"Produto {n+1}: R$ {produtos[n]:.2f}")
 
     print(f"Total : R$ {total:.2f}")
