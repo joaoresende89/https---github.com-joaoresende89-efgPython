@@ -15,9 +15,11 @@ while cont > 0:
         taxaA = float(taxaA)
         taxaB = float(taxaB)
         ano = 0
-        while paisA < paisB:
-            paisA = paisA + (paisA * (taxaA/100))
-            paisB = paisB + (paisB * (taxaB/100))
+        while paisA <= paisB:
+            # paisA = paisA + (paisA * (taxaA/100))
+            # paisB = paisB + (paisB * (taxaB/100))
+            paisA += paisA *(taxaA/100)
+            paisB += paisB *(taxaB/100)
             ano += 1
         cont = 0
 
