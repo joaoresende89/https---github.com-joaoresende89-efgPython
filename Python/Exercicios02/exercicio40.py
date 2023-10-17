@@ -18,3 +18,18 @@ for i in range(5):
 maxAcidente = acidentes.index(max(acidentes))
 minAcidentes = acidentes.index(min(acidentes))
 
+print(f"A cidade com maior índice de acidentes de transito é a cidade {cidade[maxAcidente]}, com o número de {acidentes[maxAcidente]} acidentes.")
+print(f"A cidade com menor índice de acidentes de transito é a cidade {cidade[minAcidentes]}, com o número de {acidentes[minAcidentes]} acidentes.")
+print(f"A média de veículos das cidades é de {(sum(veiculos))/5:.1f}")
+
+medAcidente = 0
+cont = 0
+
+for i in range(5):
+    if cidade[i] < 2000:
+        medAcidente = medAcidente + acidentes[i]
+        cont += 1
+
+print(f"A média de acidentes em cidade com mais de 2000 carros é de {medAcidente/cont}")
+
+
