@@ -15,14 +15,28 @@
 
 divida = float(input("Qual o valor da dívida: "))
 
-print("Valor da Dívida - Valor dos Juros - Quantidade de Parcelas - Valor da Parcela")
-print(f"R${divida:9.2f}       0                 1                        R${divida:9.2f}")
+# print("Valor da Dívida - Valor dos Juros - Quantidade de Parcelas - Valor da Parcela")
+# print(f"R${divida:9.2f}       0                 1                        R${divida:9.2f}")
+
+print(
+    "| VALOR DA DIVIDA | VALOR DOS JUROS | QUANT DE PARCELAS | VALOR DA PARCELA\n" 
+    f"|R${divida:9.2f}\t"
+    f"|0\t "
+    f"|1\t"
+    f"|R${divida:9.2f}"
+)
 
 juros = 0.1
 valorParcela = 0
 
 # o for começa em 3, o i vai incrementando 3 até 12
 for i in range(3,13,3):
-    print(f"R${divida+(divida*juros):9.2f}       {(divida*juros):.0f}               {i}                        R${(divida+(divida*juros))/i:9.2f}")
+    print(
+        f"|R${divida+(divida*juros):9.2f}\t"
+        f"|R${(divida*juros):5.0f}\t"
+        f"|{i}\t\t"
+        f"|R${(divida+(divida*juros))/i:9.2f}"
+    )
+    # print(f"R${divida+(divida*juros):9.2f}       {(dividaros):.0f}*ju               {i}                        R${(divida+(divida*juros))/i:9.2f}")
     juros = juros + 0.05
     
