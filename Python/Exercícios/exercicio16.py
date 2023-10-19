@@ -15,7 +15,7 @@ B = int(input("Informe o valor de B: "))
 C = int(input("Informe o valor de C: "))
 
 Delta = (B * B) - (4 * A * C)
-Delta = Delta ** (1/2)
+#Delta = Delta ** (1/2)
 
 print(Delta)
 
