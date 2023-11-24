@@ -29,10 +29,53 @@ for k in range(0,k):
     C.append(input())
 
 # UNIAO - primeiro faz de dois conjuntos e depois com o outro
-D = A
+# D = A
 
-for i in range(0,j):
-    if B[j] not in A:
-        D.append(B[j])
+# for i in range(0,j):
+#     if B[j] not in A:
+#         D.append(B[j])
 
+# FUNÇÃO PARA CALCULAR A UNIÃO DE TRÊS CONJUNTOS
+def uniao(a, b, c):
+    d = a
+    for i in range(0,len(b)):
+        if b[i] not in a:
+            d.append(b[i])
+    e = d
+    for i in range(0,len(c)):
+        if c[i] not in d:
+            e.append(c[i])
+    return e
 
+# FUNÇÃO PARA CALCULAR A INTERSEÇÃO DE TRÊS CONJUNTOS
+# def intersec(a, b, c):
+#     d = []
+#     for i in range(0,len(a)):
+#         if a[i] in b:
+#             d.append(a[i])
+#     print(d)
+#     e = []
+#     for i in range(0,len(d)):
+#         if d[i] in c:
+#             e.append(d[i])
+#     return e
+
+# def intersec(a,b):
+#     c = []
+#     for i in range(0,len(a)):
+#         if a[i] in b:
+#             c.append(a[i])
+#     return c
+
+print(A)
+print(B)
+print(C)
+
+print(uniao(A, B, C))
+
+D = []
+n = int(len(A))
+for i in range(n):
+    if A[i] in B:
+        D.append(A[i])
+print(D)

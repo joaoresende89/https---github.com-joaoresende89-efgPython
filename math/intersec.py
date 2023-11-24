@@ -16,3 +16,4 @@ for i in range(0,4):
             j = 4
 
 print(C)
+print(len(A))
