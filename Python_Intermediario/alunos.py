@@ -37,8 +37,12 @@ def listarAlunos(a):
 
 # função para cacular a média das notas
 def calculaMedia(teste):
-    teste['Media'] = sum(teste['Notas']) / 4
-    print(f"Media das notas do aluno {teste['Nome']} é {teste['Media']}")
+    for i in range(len(teste)):
+        teste[i]['Media'] = (sum(teste[i]['Notas']) / 4)
+        print(f"Media das notas do aluno {teste[i]['Nome']} é {teste[i]['Media']}")
+        # print(teste[i])
+    # teste['Media'] = sum(teste['Notas']) / 4
+    # print(f"Media das notas do aluno {teste['Nome']} é {teste['Media']}")
     return teste
 
 # pesquisar aluno
@@ -79,7 +83,7 @@ def menu():
         elif opcao == 3:
             listarAlunos(aluno)
         elif opcao == 4:
-            pesquisaAluno(aluno)
+            print(pesquisaAluno(aluno))
         else:
             print("Opção inválida!")
 
