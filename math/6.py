@@ -43,20 +43,27 @@ def uniao(a, b, c):
 
 # FUNÇÃO PARA CALCULAR A INTERSEÇÃO DE TRÊS CONJUNTOS
 
-def intersec(a, b ,c):
-    d = []
+# def intersec(a, b ,c):
+#     d = []
+#     for i in range(len(a)-1):
+#         for j in range(len(b)-1):
+#             if a[i] == b[j]:
+#                 d.append(b[j])
+#                 j = len(b)
+#     e = []
+#     for i in range(len(d)-1):
+#         for j in range(len(c)-1):
+#             if d[i] == c[j]:
+#                 e.append(c[j])
+#                 j = len(c)
+#     return e
+
+def intersec(a, b):
+    c = []
     for i in range(len(a)):
-        for j in range(len(b)):
-            if a[i] == b[j]:
-                d.append(b[j])
-                j = len(b)
-    e = []
-    for i in range(len(d)):
-        for j in range(len(c)):
-            if d[i] == c[j]:
-                e.append(c[j])
-                j = len(c)
-    return e
+        if a[i] in b:
+            c.append(a[i])
+    return c
 
 # def intersec(a, b, c):
 #     d = []
@@ -80,11 +87,11 @@ def intersec(a, b ,c):
 # FUNÇÃO QUE MOSTRA A DIFERENÇA ENTRE TRÊS CONJUNTOS
 def diferenca(a, b, c):
     d = []
-    for i in range(len(a)):
+    for i in range(len(a)-1):
         if a[i] not in b:
             d.append(a[i])
     e = []
-    for i in range(len(d)):
+    for i in range(len(d)-1):
         if d[i] not in c:
             e.append(d[i])
     return e
@@ -92,21 +99,21 @@ def diferenca(a, b, c):
 # FUNÇÃO PARA CALCULAR O COMPLEMENTO DOS TRÊS CONJUNTOS
 def complemento(a, b, c):
     d = []
-    for i in range(len(b)):
+    for i in range(len(b)-1):
         if b[i] not in a:
             d.append(b[i])
     e = []
-    for i in range(len(c)):
+    for i in range(len(c)-1):
         if c[i] not in d:
             e.append(c[i])
     return e
 
-print(A)
-print(B)
-print(C)
+print("Conjunto A:",A)
+print("Conjunto B:",B)
+print("Conjunto C:",C)
 
-print(uniao(A, B, C))
-print(intersec(A, B, C))
-print(diferenca(A, B, C))
-print(complemento(A, B, C))
+print("União entres os conjuntos:",uniao(A, B, C))
+print("Interseção entres os conjuntos:",intersec((intersec(A, B)),C))
+print("Diferença entres os conjuntos:",diferenca(A, B, C))
+print("Complementos entres os conjuntos:",complemento(A, B, C))
 
