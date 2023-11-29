@@ -29,12 +29,6 @@ for k in range(0,k):
     C.append(input())
 
 # UNIAO - primeiro faz de dois conjuntos e depois com o outro
-# D = A
-
-# for i in range(0,j):
-#     if B[j] not in A:
-#         D.append(B[j])
-
 # FUNÇÃO PARA CALCULAR A UNIÃO DE TRÊS CONJUNTOS
 def uniao(a, b, c):
     d = a
@@ -48,6 +42,22 @@ def uniao(a, b, c):
     return e
 
 # FUNÇÃO PARA CALCULAR A INTERSEÇÃO DE TRÊS CONJUNTOS
+
+def intersec(a, b ,c):
+    d = []
+    for i in range(len(a)):
+        for j in range(len(b)):
+            if a[i] == b[j]:
+                d.append(b[j])
+                j = len(b)
+    e = []
+    for i in range(len(d)):
+        for j in range(len(c)):
+            if d[i] == c[j]:
+                e.append(c[j])
+                j = len(c)
+    return e
+
 # def intersec(a, b, c):
 #     d = []
 #     for i in range(0,len(a)):
@@ -67,15 +77,36 @@ def uniao(a, b, c):
 #             c.append(a[i])
 #     return c
 
+# FUNÇÃO QUE MOSTRA A DIFERENÇA ENTRE TRÊS CONJUNTOS
+def diferenca(a, b, c):
+    d = []
+    for i in range(len(a)):
+        if a[i] not in b:
+            d.append(a[i])
+    e = []
+    for i in range(len(d)):
+        if d[i] not in c:
+            e.append(d[i])
+    return e
+
+# FUNÇÃO PARA CALCULAR O COMPLEMENTO DOS TRÊS CONJUNTOS
+def complemento(a, b, c):
+    d = []
+    for i in range(len(b)):
+        if b[i] not in a:
+            d.append(b[i])
+    e = []
+    for i in range(len(c)):
+        if c[i] not in d:
+            e.append(c[i])
+    return e
+
 print(A)
 print(B)
 print(C)
 
 print(uniao(A, B, C))
+print(intersec(A, B, C))
+print(diferenca(A, B, C))
+print(complemento(A, B, C))
 
-D = []
-n = int(len(A))
-for i in range(n):
-    if A[i] in B:
-        D.append(A[i])
-print(D)

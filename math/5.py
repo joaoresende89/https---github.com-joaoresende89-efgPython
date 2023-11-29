@@ -2,3 +2,4 @@
 
 i = int(input("Informe a quantidade de conjuntos: "))
 j = int(input("Informe a quantidade de elementos: "))
+

@@ -38,8 +38,11 @@ def listarAlunos(a):
 # função para cacular a média das notas
 def calculaMedia(teste):
     for i in range(len(teste)):
-        teste[i]['Media'] = (sum(teste[i]['Notas']) / 4)
-        print(f"Media das notas do aluno {teste[i]['Nome']} é {teste[i]['Media']}")
+        if ['Media'] not in teste[i]:
+            teste[i]['Media'] = (sum(teste[i]['Notas']) / 4)
+            print(f"Media das notas do aluno {teste[i]['Nome']} é {teste[i]['Media']}")
+        else:
+            print(f"Media das notas do aluno {teste[i]['Nome']} é {teste[i]['Media']}")
         # print(teste[i])
     # teste['Media'] = sum(teste['Notas']) / 4
     # print(f"Media das notas do aluno {teste['Nome']} é {teste['Media']}")
