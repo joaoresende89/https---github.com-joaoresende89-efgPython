@@ -1,7 +1,9 @@
 # TKINTER
 
 from tkinter import *
+from tkinter import ttk
 import tkinter.messagebox
+
 
 janela = Tk()
 menubar = Menu(janela)
@@ -17,9 +19,6 @@ alunos = []
 cadastroMenu = Menu(menubar)
 menubar.add_cascade(label="Cadastro", menu=cadastroMenu)
 menubar.add_command(label="Sobre")
-
-def limpa_tela():
-    cadastroAluno.destroy()
     
 
 # função da tela de cadastro
@@ -41,6 +40,7 @@ def cadastroAluno():
             'nota3': float(entry_nota3.get()),
             'nota4': float(entry_nota4.get())
         }
+        Aluno["media"] = 0
         alunos.append(Aluno)
         tkinter.messagebox.showinfo("Cadastro de Aluno", "Aluno cadastrado com sucesso!")
         MsgBox = tkinter.messagebox.askyesno(message="Deseja casdastrar mais um aluno?")
@@ -122,21 +122,64 @@ def listarAlunos():
     janela_listar = Tk()
     janela_listar.title("Lista de Alunos")
 
-    for i in range(len(alunos)):
-        aux = {}
-        aux = alunos[i]
-        print(aux)
-        # for j in range(len(aux[0])):
-        #     lista = Entry(janela_listar, width=12)
-        #     lista.grid(row=i, column=j)
-        #     lista.insert(END, aux[i][j])    
+    tree = ttk.Treeview(janela_listar)
+    tree["column"] = ("Nome", "Telefone", "Email", "Notas", "Média")
+
+    # Defina as colunas
+    tree.column("#0", width=0, stretch=NO)
+    tree.column("Nome", anchor=W, width=100)
+    tree.column("Telefone", anchor=W, width=100)
+    tree.column("Email", anchor=W, width=150)
+    tree.column("Notas", anchor=W, width=200)
+    tree.column("Média", anchor=W, width=300)
+
+
+    # Defina os cabeçalhos
+    tree.heading("#0", text="", anchor=W)
+    tree.heading("Nome", text="Nome", anchor=W)
+    tree.heading("Telefone", text="Telefone", anchor=W)
+    tree.heading("Email", text="Email", anchor=W)
+    tree.heading("Notas", text="Notas", anchor=W)
+    tree.heading("Média", text="Média", anchor=W)
+    
+    # Adiciona cada aluno à Treeview como uma linha
+    for aluno in alunos:
+        info_aluno = (
+            aluno["nome"],
+            aluno["telefone"],
+            aluno["email"],
+            f"Nota1: {aluno['notas']['nota1']}, Nota2: {aluno['notas']['nota2']}, Nota3: {aluno['notas']['nota3']}, Nota4: {aluno['notas']['nota4']}",
+            f"{aluno['media']:.2f}"
+        )
+        tree.insert("", END, values=info_aluno)
+
+    tree.pack(expand=YES, fill=BOTH)
 
     janela_listar.mainloop()
+
+# Calular e mostrar média das notas
+def calcular_media():
+    for aluno in alunos:
+        nome_aluno = aluno['nome']
+        notas = aluno['notas']
+        media_notas = sum(notas.values()) / len(notas)
+        # print(nome_aluno, media_notas)
+        # adicionando chave média no dicionário aluno
+        aluno['media'] = media_notas
+
+        # exibindo na tela a média de cada aluno
+        # label_resultado = Label(janela_media, text=f"Media de {nome_aluno} é {media_notas:.2f}")
+        # label_resultado.pack(pady=5)
+    tkinter.messagebox.showinfo("Calculo de média", "Cálculo das médias realizado com sucesso!")
+   
+
+# criar tela de alteração de dados
+# criar tela de exclusão de dados
     
 
 # criando sub menus
 cadastroMenu.add_command(label="Cadastrar aluno", command=cadastroAluno)
-cadastroMenu.add_command(label="Calcular e mostrar média do aluno ")
+cadastroMenu.add_command(label="Calcular e mostrar média do aluno", command=calcular_media)
 cadastroMenu.add_command(label="Listar alunos", command=listarAlunos)
 cadastroMenu.add_command(label="Pesquisar aluno")
 cadastroMenu.add_separator()
